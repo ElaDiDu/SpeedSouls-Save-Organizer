@@ -117,6 +117,7 @@ public class OrganizerWindow extends JFrame
 			}
 
 
+			@SuppressWarnings("removal")
 			@Override
 			public void windowClosing(WindowEvent e)
 			{

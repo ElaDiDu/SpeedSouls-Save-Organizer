@@ -33,6 +33,37 @@ public enum GlobalHotkey
 			return OrganizerManager.PREFS_KEY_GLOBAL_HOTKEY_LOAD;
 		}
 	},
+	IMPORT_SAVE("Import Save:", "None")
+	{
+		@Override
+		public void action()
+		{
+			if (OrganizerManager.getSelectedProfile().getRoot() != null)
+				OrganizerManager.importSavefile(null);
+		}
+
+
+		@Override
+		public String getPrefsKey()
+		{
+			return OrganizerManager.PREFS_KEY_GLOBAL_HOTKEY_IMPORT;
+		}
+	},
+	REPLACE_SAVE("Replace Selected Save:", "None")
+	{
+		@Override
+		public void action()
+		{
+			if (OrganizerManager.getSelectedEntry() instanceof Save)
+				OrganizerManager.importAndReplaceSavefile((Save) OrganizerManager.getSelectedEntry());
+		}
+
+		@Override
+		public String getPrefsKey()
+		{
+			return OrganizerManager.PREFS_KEY_GLOBAL_HOTKEY_REPLACE;
+		}
+	},
 	READ_ONLY_TOGGLE("Switch Gamefile To Read-Only:", "None")
 	{
 
